@@ -86,7 +86,7 @@ h1.display-3 {
     background-size: cover;
     background-attachment: fixed; /* Makes background fixed during scroll for parallax effect */
     
-    min-height: 110vh; /* CORRECTED from 1000vh, based on your comment "Aumentado de 100vh para 110vh" */
+    min-height: 110vh; /* Altura padrão para desktop e telas maiores */
     color: var(--text-light-primary);
     display: flex; 
     align-items: center; 
@@ -369,8 +369,8 @@ footer {
         margin-top: 0.5rem;
     }
     .hero-section {
-        min-height: auto; /* Hero não precisa ser 110vh, padding controla a altura */
-        /* background-attachment: fixed; might still be okay here, or set to scroll if preferred */
+        min-height: auto; /* Hero não precisa ser 110vh em MD, padding controla a altura */
+        /* background-attachment: fixed; pode ser mantido ou alterado para scroll se preferir */
     }
     .hero-section h1.display-3 {
         font-size: 3.5rem;
@@ -397,8 +397,9 @@ footer {
         font-size: 1.5rem;
     }
     .hero-section {
-        /* min-height: auto; já herdado de MD */
-        padding-top: 4rem; 
+        min-height: 75vh; /* MODIFICAÇÃO: Aumenta a altura do hero para mobile */
+                            /* O `background-size: cover` fará a imagem preencher essa altura maior */
+        padding-top: 4rem; /* Mantém o padding para o conteúdo interno */
         padding-bottom: 4rem; 
         background-attachment: scroll; /* Revert to default scroll for better mobile performance/behavior */
     }
@@ -438,6 +439,7 @@ footer {
 /* Telas Extra Pequenas (Smartphones em retrato - XS) */
 @media (max-width: 575.98px) {
     .hero-section {
+        /* min-height: 75vh;  Herda de SM, mas pode ser ajustado se necessário para XS especificamente */
         padding-top: 3.5rem; 
         padding-bottom: 3.5rem; 
     }
